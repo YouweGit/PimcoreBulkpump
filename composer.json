@@ -1,5 +1,5 @@
 {
-  "name": "youwe/pimcore-bulkpump ",
+  "name": "youwe/pimcore-bulkpump",
   "type": "pimcore-plugin",
   "description": "Youwe Pimcore Importer",
   "autoload": {
