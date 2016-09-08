@@ -133,7 +133,7 @@ abstract class CsvDataMapper_Abstract_Import implements CsvDataMapper_Interface_
         $path = $this->checkConfigField('path');
         $storeAsVariant = $this->checkConfigField('storeAsVariant');
         $objectClassName = CsvImport_Object::OBJECT_PREFIX . ucfirst($className);
-        $parent = \PathManager_PathManager::getOrCreateFolder($path);
+        $parent = Pimcore\Model\Object\Service::createFolderByPath($path);
 
         $dataMapper = $this->getDataMapper();
         $keyMap = $dataMapper->getMappingSource('o_key');

@@ -2,7 +2,6 @@
 
 /**
  * Class CsvImport_Abstract_Import
- * @required \PathManager_PathManager
  */
 class CsvDataMapper_Import extends CsvDataMapper_Abstract_Import
 {
