@@ -6,7 +6,7 @@ use Pimcore\File;
 /**
  * Import.php
  *
- * @depends  CsvImport_Object, \PathManager_PathManager
+ * @depends  CsvImport_Object
  *
  * @category Youwe Development
  * @package  intratuin-pimcore
