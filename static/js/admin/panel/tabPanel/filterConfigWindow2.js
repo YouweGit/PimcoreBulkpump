@@ -20,7 +20,7 @@ pimcore.plugin.CsvImport.admin.filterConfigWindow2 = Class.create({
             ],
 
             proxy: new Ext.data.HttpProxy({
-                url: '/BulkPump/filters'
+                url: '/PimcoreBulkpump/filters'
             })
         });
     },
@@ -46,7 +46,7 @@ pimcore.plugin.CsvImport.admin.filterConfigWindow2 = Class.create({
             }),
 
             proxy: new Ext.data.HttpProxy({
-                url: '/BulkPump/filterchain'
+                url: '/PimcoreBulkpump/filterchain'
             }),
 
             baseParams: {
@@ -102,7 +102,7 @@ pimcore.plugin.CsvImport.admin.filterConfigWindow2 = Class.create({
                 hidden: false,
                 items: [
                     {
-                        icon: '/plugins/BulkPump/static/img/arrow_up.png',
+                        icon: '/plugins/PimcoreBulkpump/static/img/arrow_up.png',
                         tooltip: 'Move up',
                         handler: function (grid, rowIndex) {
                             if(rowIndex > 0)
@@ -123,7 +123,7 @@ pimcore.plugin.CsvImport.admin.filterConfigWindow2 = Class.create({
                             }
                         }.bind(this)
                     }, {
-                        icon: '/plugins/BulkPump/static/img/arrow_down.png',
+                        icon: '/plugins/PimcoreBulkpump/static/img/arrow_down.png',
                         tooltip: 'Move down',
                         handler: function (grid, rowIndex) {
                             if(rowIndex < (grid.store.getCount() - 1))
@@ -242,7 +242,7 @@ pimcore.plugin.CsvImport.admin.filterConfigWindow2 = Class.create({
             bbar: [],
             buttons: [
                 {
-                    icon: '/plugins/BulkPump/static/img/close.png',
+                    icon: '/plugins/PimcoreBulkpump/static/img/close.png',
                     text: 'Close',
                     handler: function () {
                         popup.close();

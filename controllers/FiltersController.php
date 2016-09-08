@@ -2,7 +2,7 @@
 
 use Pimcore\Model\Object;
 
-class BulkPump_FiltersController extends BulkPump_BaseController
+class PimcoreBulkpump_FiltersController extends PimcoreBulkpump_BaseController
 {
 
     public function indexAction()

@@ -23,7 +23,7 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
 
     checkRight : function(permission, success, error) {
         Ext.Ajax.request({
-            url : "/plugin/BulkPump/user/permission",
+            url : "/plugin/PimcoreBulkpump/user/permission",
             params : { permission : permission },
             success : function (result) {
                 var res = Ext.decode(result.responseText);

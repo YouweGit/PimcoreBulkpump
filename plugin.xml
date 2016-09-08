@@ -4,10 +4,10 @@
 
         <!-- the plugin name [A-Za-z_] -->
 
-        <pluginName>BulkPump</pluginName>
+        <pluginName>PimcoreBulkpump</pluginName>
 
         <!-- a short description -->
-        <pluginDescription><![CDATA[]]></pluginDescription>
+        <pluginDescription><![CDATA[Add functionality for import from files (GUI/CLI) ]]></pluginDescription>
 
         <!-- meta data -->
         <pluginVersion>1.0</pluginVersion>
@@ -18,51 +18,51 @@
         <pluginIframeSrc></pluginIframeSrc>
 
         <!-- className of the plugin which extends Pimcore_API_Plugin_Abstract-->
-        <pluginClassName>\BulkPump\Plugin</pluginClassName>
+        <pluginClassName>\PimcoreBulkpump\Plugin</pluginClassName>
 
         <!-- include paths relative to plugin-directory -->
         <pluginIncludePaths>
-            <path>/BulkPump/controllers</path>
-            <path>/BulkPump/lib</path>
-            <path>/BulkPump/models</path>
+            <path>/PimcoreBulkpump/controllers</path>
+            <path>/PimcoreBulkpump/lib</path>
+            <path>/PimcoreBulkpump/models</path>
         </pluginIncludePaths>
 
         <!-- namespaces to register with autoloader-->
         <pluginNamespaces>
-            <namespace>BulkPump</namespace>
+            <namespace>PimcoreBulkpump</namespace>
             <namespace>CsvImport</namespace>
             <namespace>CsvDataMapper</namespace>
         </pluginNamespaces>
 
         <!-- js files with path relative to plugin-directory -->
         <pluginJsPaths>
-            <path>/plugins/BulkPump/static/js/startup.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/startup.js</path>
 
             <!--models-->
-            <path>/plugins/BulkPump/static/js/admin/profiles.js</path>
-            <path>/plugins/BulkPump/static/js/admin/object.js</path>
-            <path>/plugins/BulkPump/static/js/admin/columns.js</path>
-            <path>/plugins/BulkPump/static/js/admin/log.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/profiles.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/object.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/columns.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/log.js</path>
 
             <!--panels-->
-            <path>/plugins/BulkPump/static/js/admin/panel/mainPanel.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/tabPanel.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/gridlist.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/uploadForm.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/mainPanel.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/gridlist.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/uploadForm.js</path>
 
             <!--tabs-->
-            <path>/plugins/BulkPump/static/js/admin/panel/tabPanel/profileTab.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/tabPanel/configTab.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/tabPanel/dataTab.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/tabPanel/logsTab.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/tabPanel/filterConfigWindow2.js</path>
-            <path>/plugins/BulkPump/static/js/admin/panel/tabPanel/paramsPanel.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/profileTab.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/configTab.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/dataTab.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/logsTab.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/filterConfigWindow2.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/paramsPanel.js</path>
 
         </pluginJsPaths>
 
         <!-- css files with path relative to plugin-directory -->
         <pluginCssPaths>
-            <path>/plugins/BulkPump/static/css/example.css</path>
+            <path>/plugins/PimcoreBulkpump/static/css/example.css</path>
         </pluginCssPaths>
     </plugin>
 </zend-config>

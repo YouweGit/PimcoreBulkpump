@@ -3,7 +3,7 @@
 use Pimcore\Model\Object;
 
 
-class BulkPump_FilterchainController extends \Pimcore\Controller\Action\Admin
+class PimcoreBulkpump_FilterchainController extends \Pimcore\Controller\Action\Admin
 {
 
     public function indexAction()

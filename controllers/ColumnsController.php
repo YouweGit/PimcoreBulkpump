@@ -13,7 +13,7 @@
 
 use Pimcore\Model\Object;
 
-class BulkPump_ColumnsController extends BulkPump_BaseController {
+class PimcoreBulkpump_ColumnsController extends PimcoreBulkpump_BaseController {
 
     /**
      *

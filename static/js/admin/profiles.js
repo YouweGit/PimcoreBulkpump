@@ -30,7 +30,7 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
 
                 }),
                 proxy: new Ext.data.HttpProxy({
-                    url: '/BulkPump/profile'
+                    url: '/PimcoreBulkpump/profile'
                 }),
                 reader: new Ext.data.JsonReader({
                     successProperty: 'success',

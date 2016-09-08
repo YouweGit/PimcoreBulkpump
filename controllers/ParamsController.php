@@ -4,7 +4,7 @@
  * Propel Etim Viewer/Editor
  * Class YouweEtim_AdminController
  */
-class BulkPump_ParamsController extends \Pimcore\Controller\Action\Admin
+class PimcoreBulkpump_ParamsController extends \Pimcore\Controller\Action\Admin
 {
 
     /**

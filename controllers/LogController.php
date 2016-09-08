@@ -10,7 +10,7 @@
  * @date 12/7/15
  *
  */
-class BulkPump_LogController extends BulkPump_BaseController
+class PimcoreBulkpump_LogController extends PimcoreBulkpump_BaseController
 {
     /**
      *

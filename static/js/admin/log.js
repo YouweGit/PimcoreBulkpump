@@ -36,7 +36,7 @@ pimcore.plugin.CsvImport.admin.logClass = Class.create({
 //        });
 
         Ext.Ajax.request({
-            url: '/plugin/BulkPump/log/import',
+            url: '/plugin/PimcoreBulkpump/log/import',
             //success: onDoneAction,
             //failure: onDoneAction,
             params: {

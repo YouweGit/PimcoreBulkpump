@@ -3,7 +3,7 @@
 
 use Pimcore\File;
 
-class BulkPump_FileController extends BulkPump_BaseController
+class PimcoreBulkpump_FileController extends PimcoreBulkpump_BaseController
 {
     /** @var CsvProductImporter_FileConfigMapper */
     protected $filesConfigModelMapper;

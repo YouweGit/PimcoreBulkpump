@@ -100,7 +100,7 @@ pimcore.plugin.CsvImport.admin.logsTab = Class.create(
         },
         getProfileLogsStore: function () {
             return new Ext.data.JsonStore({
-                url: '/plugin/BulkPump/profile/get-logs',
+                url: '/plugin/PimcoreBulkpump/profile/get-logs',
                 restful: false,
                 autoDestroy: true,
                 autoLoad: false,

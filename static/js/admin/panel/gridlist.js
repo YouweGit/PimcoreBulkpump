@@ -110,7 +110,7 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
     },
     duplicateProfile: function (grid, profileId) {
         Ext.Ajax.request({
-            url: "/plugin/BulkPump/profile/duplicate",
+            url: "/plugin/PimcoreBulkpump/profile/duplicate",
             method: 'POST',
             params: {
                 profileId: profileId

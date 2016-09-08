@@ -355,7 +355,7 @@ pimcore.plugin.CsvImport.admin.profileTab = Class.create(
                     encode: false
                 }),
                 proxy: new Ext.data.HttpProxy({
-                    url: '/plugin/BulkPump/file'
+                    url: '/plugin/PimcoreBulkpump/file'
                 }),
                 baseParams: {},
                 reader: new Ext.data.JsonReader({

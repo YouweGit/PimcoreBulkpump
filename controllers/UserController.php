@@ -7,7 +7,7 @@
  */
 
 // extending Action\Admin so the extra security doesnt block requests to check security
-class BulkPump_UserController extends \Pimcore\Controller\Action\Admin {
+class PimcoreBulkpump_UserController extends \Pimcore\Controller\Action\Admin {
 
 
     public function permissionAction() {

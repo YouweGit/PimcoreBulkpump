@@ -1,7 +1,7 @@
 <?php
 
 
-namespace BulkPump;
+namespace PimcoreBulkpump;
 
 
 interface CustomImportInterface {

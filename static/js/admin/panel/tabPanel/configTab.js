@@ -118,7 +118,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                             hidden: false,
                             items: [
                                 {
-                                    icon: '/plugins/BulkPump/static/img/filter.png',
+                                    icon: '/plugins/PimcoreBulkpump/static/img/filter.png',
                                     tooltip: 'Filter configuration',
                                     handler: function (grid, rowIndex) {
                                         
@@ -166,7 +166,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                     root: 'fields'
                 }),
                 proxy: new Ext.data.HttpProxy({
-                    url: '/BulkPump/config'
+                    url: '/PimcoreBulkpump/config'
                 }),
                 baseParams: {
                     profileId: id

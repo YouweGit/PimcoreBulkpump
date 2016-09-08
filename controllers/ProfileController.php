@@ -2,7 +2,7 @@
 
 use Pimcore\File;
 
-class BulkPump_ProfileController extends BulkPump_BaseController {
+class PimcoreBulkpump_ProfileController extends PimcoreBulkpump_BaseController {
     /** @var CsvImport_Mapper_Profile */
     protected $profileModelMapper;
 

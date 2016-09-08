@@ -13,7 +13,7 @@
 
 use Pimcore\Model\Object;
 
-class BulkPump_ConfigController extends BulkPump_BaseController {
+class PimcoreBulkpump_ConfigController extends PimcoreBulkpump_BaseController {
 
     /**
      * @var

@@ -18,7 +18,7 @@ pimcore.plugin.CsvImport.admin.columns = Class.create(
                     encode: false
                 }),
                 proxy: new Ext.data.HttpProxy({
-                    url: '/plugin/BulkPump/columns'
+                    url: '/plugin/PimcoreBulkpump/columns'
                 }),
                 baseParams: {
                     profileId: id

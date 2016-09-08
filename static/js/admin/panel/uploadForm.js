@@ -50,7 +50,7 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
                                 fileUpload: true,
                                 clientValidation: true,
                                 method: 'POST',
-                                url: '/plugin/BulkPump/file/post',
+                                url: '/plugin/PimcoreBulkpump/file/post',
                                 waitMsg: 'Uploading file...',
                                 success: function (form, action) {
                                     // update the form field

@@ -8,7 +8,7 @@ pimcore.plugin.CsvImport.admin.paramsPanel = Class.create({
         this.parentPanel = parent;
 
         Ext.Ajax.request({
-            url: '/plugin/BulkPump/Params/get?config_id=' + config_id + '&filter_id=' + filter_id,
+            url: '/plugin/PimcoreBulkpump/Params/get?config_id=' + config_id + '&filter_id=' + filter_id,
             success: function(res) {
                 
                 this.formPanel = new Ext.FormPanel({
@@ -58,7 +58,7 @@ pimcore.plugin.CsvImport.admin.paramsPanel = Class.create({
     
     saveForm: function () {
         this.formPanel.getForm().submit({
-            url : '/plugin/BulkPump/Params/save',
+            url : '/plugin/PimcoreBulkpump/Params/save',
             success: function () {
                 this.parentPanel.removeAll();
                 pimcore.helpers.showNotification(t("success"), "Filter parameters saved", "success");

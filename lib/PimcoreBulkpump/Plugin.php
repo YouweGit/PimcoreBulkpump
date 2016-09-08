@@ -1,6 +1,6 @@
 <?php
 
-namespace BulkPump;
+namespace PimcoreBulkpump;
 
 use Pimcore\API\Plugin as PluginLib;
 use Pimcore\Resource;
@@ -15,22 +15,22 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
 
 
         $restRoute = new \Zend_Rest_Route($front, array(), array(
-            'BulkPump' => array('profile'),
+            'PimcoreBulkpump' => array('profile'),
         ));
         $router->addRoute('csv_importer_rest_profile', $restRoute);
 
         $restRoute = new \Zend_Rest_Route($front, array(), array(
-            'BulkPump' => array('config'),
+            'PimcoreBulkpump' => array('config'),
         ));
         $router->addRoute('csv_importer_rest_config', $restRoute);
 
         $restRoute = new \Zend_Rest_Route($front, array(), array(
-            'BulkPump' => array('filters'),
+            'PimcoreBulkpump' => array('filters'),
         ));
         $router->addRoute('csv_importer_rest_filters', $restRoute);
 
         $restRoute = new \Zend_Rest_Route($front, array(), array(
-            'BulkPump' => array('filterchain'),
+            'PimcoreBulkpump' => array('filterchain'),
         ));
         $router->addRoute('csv_importer_rest_filterchain', $restRoute);
 
@@ -102,7 +102,7 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
     public static function getUserPermissions()
     {
         $userPermissions = array(
-            array("key" => "plugin_bulkpump_user"),
+            array("key" => "plugin_pimcorebulkpump_user"),
             //array("key" => "plugin_bulkpump_profiles"), //TODO: when we develop the plugin further
             //array("key" => "plugin_bulkpump_admin"), // TODO: when we develop the plugin further
         );
@@ -189,10 +189,10 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
 
     public static function getTranslationFile($language)
     {
-        if(file_exists(PIMCORE_PLUGINS_PATH . "/BulkPump/translation/" . $language . ".csv")){
-            return "/BulkPump/translation/" . $language . ".csv";
+        if(file_exists(PIMCORE_PLUGINS_PATH . "/PimcoreBulkpump/translation/" . $language . ".csv")){
+            return "/PimcoreBulkpump/translation/" . $language . ".csv";
         }
-        return "/BulkPump/translation/en.csv";
+        return "/PimcoreBulkpump/translation/en.csv";
 
     }
 
