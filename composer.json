@@ -1,0 +1,30 @@
+{
+  "name": "youwe/bulk-pump",
+  "type": "pimcore-plugin",
+  "description": "Youwe Pimcore BulkPump",
+  "minimum-stability": "dev",
+  "require": {
+    "pimcore/installer-plugin": "^1.3",
+    "youwe/path-manager": "^0.1.5"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.youwe.nl"
+    },
+    {
+      "type": "git",
+      "url": "ssh://git@source.youwe.nl:7999/pimb2b/pathmanager.git"
+    },
+    {
+      "type": "git",
+      "url": "ssh://git@source.youwe.nl:7999/pimb2b/bulkpump.git"
+    }
+  ],
+  "autoload": {
+    "psr-0": {"Pimcore\\Composer\\": "src/"}
+  },
+  "extra": {
+    "class": "Pimcore\\Composer\\PluginInstaller"
+  }
+}
