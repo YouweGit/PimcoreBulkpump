@@ -32,7 +32,7 @@ Plugin can be installed through composer. Add json to your composer.json:
 
 Also, add these to your .gitignore:
 
-    /htdocs/plugins/BulkPump
+    /htdocs/plugins/PimcoreBulkpump
 
 
 Plugin development
