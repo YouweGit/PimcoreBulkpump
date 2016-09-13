@@ -13,12 +13,12 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
             items: [
                 {
                     text: t('add_new_profile'),
-                    iconCls: 'pimcore_icon_publish_medium',
+                    //iconCls: 'pimcore_icon_publish_medium',
                     scale: "medium",
                     handler: this.onAdd.bind(this)
                 }, {
                     text: t('remove_profile'),
-                    iconCls: 'pimcore_icon_delete_medium',
+                    //iconCls: 'pimcore_icon_delete_medium',
                     scale: "medium",
                     handler: this.onDelete.bind(this)
                 }
@@ -162,7 +162,6 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
         var profileGrid = Ext.getCmp('importer_grid_profiles');
         var profileStore = profileGrid.store;
 
-        console.log(profileStore.getCount());
         var model = new Profile({
             profile_name: null,
             attribute_language_separator: '_'});
@@ -188,13 +187,17 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
         }
         Ext.MessageBox.confirm(t('confirm'), t('are_you_sure_you_want_to_delete_this_profile'), function (value) {
             if (value == 'yes') {
+                console.log(selectedItem);
+                console.log(profileStore);
                 profileStore.remove(selectedItem);
+                profileStore.sync();
+                console.log(profileStore);
                 var tabComponent = Ext.getCmp("csv_importer_profile_config_tabs");
                 /** @var {Ext.Panel} configPanel */
-                var configPanel = tabComponent.getItem('csv_import_config_panel_' + selectedItem.id);
-                if (configPanel) {
-                    configPanel.destroy();
-                }
+               // var configPanel = tabComponent.getItem('csv_import_config_panel_' + selectedItem.id);
+              //  if (configPanel) {
+              //      configPanel.destroy();
+              //  }
             }
         });
     }
