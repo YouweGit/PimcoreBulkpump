@@ -31,16 +31,15 @@ pimcore.plugin.CsvImport.admin.profileTab = Class.create(
             ]
         },
         getTopToolbar: function (id) {
-            console.log(id);
-            return new Ext.Toolbar({
+            return Ext.create('Ext.toolbar.Toolbar',{
                 renderTo: document.body,
-                height: 35,
+                //height: 35,
                 items: [
                     {
                         text: t('save'),
                         id: 'btn_save_profile_' + id,
-                        iconCls: 'pimcore_icon_publish_medium',
-                        scale: 'medium',
+                       // iconCls: 'pimcore_icon_publish_medium',
+                        scale: 'small',
                         handler: function (button) {
                             var form = Ext.getCmp('csv_import_selected_form_' + id);
                             var values = form.getForm().getFieldValues();
@@ -49,8 +48,8 @@ pimcore.plugin.CsvImport.admin.profileTab = Class.create(
                     },
                     {
                         text: t('add_new_file'),
-                        iconCls: 'pimcore_icon_publish_medium',
-                        scale: 'medium',
+                       // iconCls: 'pimcore_icon_publish_medium',
+                        scale: 'small',
                         handler: function (self) {
                             console.log(id);
                             var window = Ext.getCmp('csv_import_file_upload_window');
