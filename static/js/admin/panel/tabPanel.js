@@ -23,6 +23,9 @@ pimcore.plugin.CsvImport.admin.mainPanel.tabPanel = Class.create(
                 xtype: 'tabpanel',
                 renderTo: document.body,
                 region: "center",
+                autoTabs: true,
+                autoScroll: true,
+                layoutOnTabChange: true,
                 items: [
                 ]
             });
@@ -81,10 +84,20 @@ pimcore.plugin.CsvImport.admin.mainPanel.tabPanel = Class.create(
                     bodyPadding: 10,
                     autoScroll: true
                 },
+                border: false,
+                autoScroll: true,
+                layout: 'fit',
+                region: "center",
+                closable: true,
                 items: [
                     profileTab.getPanel(id),
                     configTab.getPanel(id)
-                    ]
+                ],
+                listeners: {
+                    close: function(p) {
+                        p.hide();
+                    }
+                }
             });
         },
         /**
