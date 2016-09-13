@@ -1,8 +1,8 @@
 pimcore.registerNS('pimcore.plugin.CsvImport.admin.profiles');
-Ext.define('profiles', {
+Ext.define('Profile', {
     extend: 'Ext.data.Model',
     fields: [
-        'id',
+        {name: 'id', type: 'int', persist: false},
         'profile_name',
         'load_path',
         'save_to_path',
@@ -21,11 +21,11 @@ Ext.define('profiles', {
 });
 pimcore.plugin.CsvImport.admin.profiles = Class.create({
         profiles: this,
-        getProfileStore6: function(){
+        getProfileStore: function(){
             return Ext.create('Ext.data.Store',{
                 autoLoad: true,
                 autoSync: true,
-                model: 'profiles',
+                model: 'Profile',
                 proxy: {
                     type: 'rest',
                     url: '/PimcoreBulkpump/profile',
@@ -34,7 +34,9 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
                         rootProperty: 'profiles'
                     },
                     writer: {
-                        type: 'json'
+                        type: 'json',
+                        rootProperty: 'profiles'
+
                     }
                 },
                 listeners: {
@@ -48,12 +50,12 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
                         }else{
                             verb = name + 'd';
                         }
-                        Ext.example.msg(name, Ext.String.format("{0} user: {1}", verb,record.getId()));
+                       // Ext.example.msg(name, Ext.String.format("{0} user: {1}", verb,record.getId()));
                     }
                 }
             });
         },
-        getProfileStore: function () {
+        /*getProfileStore: function () {
             return new Ext.data.JsonStore({
                 root: 'profiles',
                 restful: true,
@@ -78,7 +80,7 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
                     encode: false,
                     type: 'json',
                     writeAllFields: true,
-                    root: 'profiles'
+                    root: 'Profile'
 
                 }),
                 proxy: new Ext.data.HttpProxy({
@@ -91,7 +93,7 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
                     totalProperty: 'totalCount'
                 })
             });
-        },
+        },*/
         saveRecord: function (values, id, updateCallback) {
             var store = Ext.getCmp('importer_grid_profiles').getStore();
             var rec = store.getById(id);

@@ -360,7 +360,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
             return Ext.create('Ext.data.Store',{
                 autoLoad: true,
                 autoSync: true,
-                model: 'profiles',
+                model: 'Profile',
                 proxy: {
                     type: 'rest',
                     url: '/PimcoreBulkpump/config',

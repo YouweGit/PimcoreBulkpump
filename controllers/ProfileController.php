@@ -77,7 +77,9 @@ class PimcoreBulkpump_ProfileController extends PimcoreBulkpump_BaseController {
             ));
         }
         $id = $this->profileModelMapper->create($data['profiles']);
+
         $profile = $this->profileModelMapper->getById($id);
+
         $this->_helper->json(array(
             'success'  => true,
             'message'  => 'profile_saved',

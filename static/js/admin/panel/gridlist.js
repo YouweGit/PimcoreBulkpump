@@ -29,8 +29,8 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
 
         var pageSize = 30;
 
+       // var store = profiles.getProfileStore();
         var store = profiles.getProfileStore();
-        var store6 = profiles.getProfileStore6();
 
         /*
 
@@ -72,12 +72,13 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
         gridlist.profileGrid.getStore().reload();*/
         gridlist.profileGrid = Ext.create('Ext.grid.Panel', {
             bufferedRenderer: false,
-            store: store6,
+            id: 'importer_grid_profiles',
+            store: store,
             columns: gridlist.getColumns(profiles.profileGrid),
             forceFit: true,
             height:210,
             split: true,
-            region: 'north',
+            region: 'west',
             listeners: {
                 rowclick: function(searchgrid, rowIndex, e) {
                    // var rec = grid.getStore().getAt(rowIndex);
@@ -159,14 +160,23 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
     },
     onAdd: function (btn, ev) {
         var profileGrid = Ext.getCmp('importer_grid_profiles');
-        var profileStore = profileGrid.getStore();
+        var profileStore = profileGrid.store;
+
+        console.log(profileStore.getCount());
+        var model = new Profile({
+            profile_name: null,
+            attribute_language_separator: '_'});
+
+        profileStore.add(model);
+        profileStore.sync();
+        /*
         var newProfile = profileStore.recordType;
         var profile = new newProfile({
                 profile_name: null,
                 attribute_language_separator: '_'
             });
         profileGrid.stopEditing();
-        profileStore.insert(profileStore.getCount(), profile);
+        profileStore.insert(profileStore.getCount(), profile);*/
     },
     onDelete: function (btn, ev) {
         var profileGrid = Ext.getCmp('importer_grid_profiles'),
