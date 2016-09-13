@@ -27,7 +27,8 @@ pimcore.plugin.CsvImport.admin.object = Class.create({
             allowBlank: false,
             listeners: {
                 select: function( combo, record, index ) {
-                    // configGrid.addGrid(record.id);
+                    console.log(configGrid);
+                     configGrid.addGrid(record.id);
                 }
             }
         });
@@ -37,6 +38,7 @@ pimcore.plugin.CsvImport.admin.object = Class.create({
      * @returns {Ext.data.JsonStore}
      */
     getClassStore: function () {
+        /*
         return new Ext.data.JsonStore({
             url: '/admin/class/get-tree',
             restful: false,
@@ -46,6 +48,17 @@ pimcore.plugin.CsvImport.admin.object = Class.create({
                 'id',
                 'text'
             ]
+        });*/
+        return Ext.create('Ext.data.Store', {
+            proxy: {
+                type: 'ajax',
+                url : '/admin/class/get-tree',
+                reader: {
+                    type: 'json',
+                    root: 'object'
+                }
+            },
+            autoLoad: true
         });
     }
 

@@ -30,6 +30,9 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
         var pageSize = 30;
 
         var store = profiles.getProfileStore();
+        var store6 = profiles.getProfileStore6();
+
+        /*
 
         gridlist.profileGrid = new Ext.grid.GridPanel({
             id: 'importer_grid_profiles',
@@ -49,7 +52,7 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
                     }
                 }
             },
-            sm: new Ext.grid.RowSelectionModel({singleSelect: true}),
+            sm: new Ext.selection.RowModel({singleSelect: true}),
             stripeRows: true,
             //width: 329,
             region: 'west',
@@ -66,7 +69,28 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
             })
         });
         //gridlist.profileGrid.getSelectionModel().on('rowclick', this.onCellClick.bind(this));
-        gridlist.profileGrid.getStore().reload();
+        gridlist.profileGrid.getStore().reload();*/
+        gridlist.profileGrid = Ext.create('Ext.grid.Panel', {
+            bufferedRenderer: false,
+            store: store6,
+            columns: gridlist.getColumns(profiles.profileGrid),
+            forceFit: true,
+            height:210,
+            split: true,
+            region: 'north',
+            listeners: {
+                rowclick: function(searchgrid, rowIndex, e) {
+                   // var rec = grid.getStore().getAt(rowIndex);
+                    tabPanel.openTab(rowIndex.id);
+                }
+
+            },
+            tbar: [
+                gridlist.getTopToolbar()
+            ],
+
+        });
+
         return gridlist.profileGrid;
     },
     getColumns: function (self) {

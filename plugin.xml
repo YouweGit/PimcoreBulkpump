@@ -36,7 +36,7 @@
 
         <!-- js files with path relative to plugin-directory -->
         <pluginJsPaths>
-            <path>/plugins/PimcoreBulkpump/static/js/startup.js</path>
+
 
             <!--models-->
             <path>/plugins/PimcoreBulkpump/static/js/admin/profiles.js</path>
@@ -50,6 +50,7 @@
             <path>/plugins/PimcoreBulkpump/static/js/admin/panel/gridlist.js</path>
             <path>/plugins/PimcoreBulkpump/static/js/admin/panel/uploadForm.js</path>
 
+
             <!--tabs-->
             <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/profileTab.js</path>
             <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/configTab.js</path>
@@ -57,6 +58,7 @@
             <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/logsTab.js</path>
             <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/filterConfigWindow2.js</path>
             <path>/plugins/PimcoreBulkpump/static/js/admin/panel/tabPanel/paramsPanel.js</path>
+            <path>/plugins/PimcoreBulkpump/static/js/startup.js</path>
 
         </pluginJsPaths>
 

@@ -256,12 +256,12 @@ pimcore.plugin.CsvImport.admin.profileTab = Class.create(
                 listeners: {
                     'beforerender': function (self) {
                         var newPanel = self;
-                        var profileStore = profiles.getProfileStore();
+                        var profileStore = profiles.getProfileStore6();
                         profileStore.on('load', function (self, records, options) {
                             var rec = profileStore.getById(id);
                             newPanel.getForm().loadRecord(rec);
                             this.displaySettingsForImportType(id, rec.data.import_type);
-                            newPanel.doLayout();
+                            //newPanel.doLayout();
                         }.bind(this));
                         profileStore.load();
                     }.bind(this)

@@ -21,7 +21,7 @@ class PimcoreBulkpump_FiltersController extends PimcoreBulkpump_BaseController
         // /htdocs/website/models/BulkPumpFilter/
         $filter_sources = [
             [
-                'path' => PIMCORE_PLUGINS_PATH . '/BulkPump/models/BulkPump/ImportFilter/Native/',
+                'path' => PIMCORE_PLUGINS_PATH . '/PimcoreBulkpump/models/BulkPump/ImportFilter/Native/',
                 'namespace' => 'BulkPump\\ImportFilter\\Native\\'
             ],
             [

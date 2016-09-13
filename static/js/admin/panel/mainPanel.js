@@ -43,7 +43,7 @@ pimcore.plugin.CsvImport.admin.mainPanel = Class.create(
 
             var pimcoreTabs = Ext.getCmp('pimcore_panel_tabs');
             pimcoreTabs.add(panel);
-            pimcoreTabs.activate('csv_product_import_tab');
+          //  pimcoreTabs.activate('csv_product_import_tab');
 
             panel.on('destroy', function () {
                 pimcore.globalmanager.remove('CsvImport.admin');

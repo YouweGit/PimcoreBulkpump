@@ -26,7 +26,7 @@ pimcore.plugin.CsvImport.admin.dataTab = Class.create(
         getGrid: function (id) {
             var store = this.getDataStore(id);
 
-            dataTab.grid = new Ext.grid.EditorGridPanel({
+            dataTab.grid = Ext.create('Ext.grid.Panel', {
                 id: 'csv_import_data_grid' + id,
                 store: store,
                 layout: 'fit',
@@ -44,7 +44,7 @@ pimcore.plugin.CsvImport.admin.dataTab = Class.create(
                     columns: [
                         {
                             id: 'id',
-                            header: 'id',
+                            header: 'id2',
                             dataIndex: 'id',
                             sortable: true,
                             hidden: true
@@ -66,7 +66,7 @@ pimcore.plugin.CsvImport.admin.dataTab = Class.create(
                             header: 'CSV field',
                             dataIndex: 'csv_field',
                             sortable: true,
-                            editor: columns.getColumnsCombo(id)
+                            //editor: //columns.getColumnsCombo(id)
                         },
                         {
                             id: 'language',
