@@ -45,10 +45,11 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                 id: 'csv_import_config_grid' + id,
                 store: store,
                 layout: 'fit',
-                region: 'east',
+                region: 'north',
                 anchor: "100% 100%",
                 iconCls: 'icon-grid',
                 stripeRows: true,
+                tbar: configTab.getToolbar(id),
                 viewConfig: {
                     forceFit: true
                 },
@@ -123,7 +124,6 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                                 else {
                                     return '';
                                 }
-                                console.log(data);
                             }
                         }
                     },
@@ -356,7 +356,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                     totalProperty: 'totalCount'
                 })
             });*/
-            console.log(id);
+
             return Ext.create('Ext.data.Store',{
                 autoLoad: true,
                 autoSync: true,
@@ -400,6 +400,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         iconCls: 'pimcore_icon_reload_medium',
                         scale: 'medium',
                         handler: function (button) {
+                            /*
                             var grid = button.findParentByType('grid');
                             var store = grid.getStore();
                             store.reload({
@@ -412,7 +413,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                                     });
                                 }
                             });
-                            grid.doLayout();
+                            grid.doLayout();*/
                         }
                     },
                     {
