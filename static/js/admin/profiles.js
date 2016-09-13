@@ -97,21 +97,23 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
         saveRecord: function (values, id, updateCallback) {
             var store = Ext.getCmp('importer_grid_profiles').getStore();
             var rec = store.getById(id);
+            console.log(rec);
 
             try {
-                rec.beginEdit();
-                rec.markDirty();
+               // rec.beginEdit();
+                //rec.markDirty();
                 for (var key in values) {
                     rec.set(key, values[key]);
                 }
-                rec.endEdit();
-                rec.commit();
+              //  rec.endEdit();
+              //  rec.commit();
             } catch (e) {
                 console.log(e);
             }
 
-            store.on('update', updateCallback, this, {single: true}
-            );
+            store.sync();
+            //store.on('update', updateCallback, this, {single: true}
+            //);
 
         }
     }
