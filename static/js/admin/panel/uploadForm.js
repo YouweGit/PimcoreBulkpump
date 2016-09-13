@@ -3,6 +3,7 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
     self: this,
     uploadForm: {},
     getUploadForm: function () {
+        /*
         return new Ext.FormPanel({
             id: "csv_import_upload_form_panel",
             fileUpload: true,
@@ -41,7 +42,8 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
 
                         // get the form data
                         var values = form.getForm().getFieldValues();
-                        var file = values['filedata'].split('\\').last();
+                        console.log(values);
+                        var file = values['filedata-inputEl'].split('\\').last();
 
                         var window = form.findParentByType('window');
                         if (form.getForm().isValid()) {
@@ -77,18 +79,83 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
                     }
                 }
             ]
+        });*/
+        return Ext.create('Ext.form.Panel', {
+            bodyPadding: 10,
+            frame: false,
+            renderTo: Ext.getBody(),
+            items: [{
+                xtype: 'filefield',
+                name: 'filedata',
+                fieldLabel: 'File',
+                labelWidth: 50,
+                msgTarget: 'side',
+                allowBlank: false,
+                anchor: '100%',
+                buttonText: 'Select file...'
+            }],
+
+            buttons: [{
+                text: 'Upload',
+                handler: function(self) {
+                    var mainWindow = self.findParentByType('window');
+                    var formParent = self.findParentByType('form');
+                    var id = mainWindow.profileId;
+
+                    var form = this.up('form').getForm();
+                    var window = formParent.findParentByType('window');
+                    if(form.isValid()){
+                        window.hide();
+                        var values = form.getFieldValues();
+                        var file = values['filedata'].split('\\').last();
+
+                        form.submit({
+                            url: '/plugin/PimcoreBulkpump/file/post',
+                            waitMsg: 'Uploading your file...',
+                            success: function(fp, o) {
+                                // update the form field
+                                document.getElementById("load_path_field" + id +'-inputEl').value = file;
+                                // reload the config list
+                                //Ext.getCmp('csv_import_config_grid' + id).doLayout();
+
+                                pimcore.helpers.showNotification(t('file_uploaded_confirmation_title'), t('file_uploaded_confirmation'));
+                            }
+                        });
+                    }
+                }
+            }]
         });
     },
     getFileWindow: function () {
 
         // ? bug
         var uploadForm = this.getUploadForm();
-        var window = new Ext.Window({
-            /**
+        /*var window = new Ext.Window({
+            /!**
              * holder for the profile id
-             */
+             *!/
             profileId: null,
             id: 'csv_import_file_upload_window',
+            width: 500,
+            closeAction: 'hide',
+            plain: true,
+            buttons: [
+                new Ext.Button({
+                    text: 'Close',
+                    handler: function (self) {
+                        var parent = self.findParentByType('window');
+                        parent.hide();
+                    }
+                })
+            ],
+            items: [
+                uploadForm
+            ]
+        });*/
+        var window = Ext.create('Ext.window.Window', {
+            profileId: null,
+            id: 'csv_import_file_upload_window',
+            title: 'Upload file',
             width: 500,
             closeAction: 'hide',
             plain: true,
@@ -108,7 +175,7 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
         return window;
     },
     initialize: function () {
-
+        this.getFileWindow();
     }
 });
 var uploadForm = new pimcore.plugin.CsvImport.admin.uploadForm();
