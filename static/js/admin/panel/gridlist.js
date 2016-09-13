@@ -14,12 +14,12 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
                 {
                     text: t('add_new_profile'),
                     //iconCls: 'pimcore_icon_publish_medium',
-                    scale: "medium",
+                    scale: "small",
                     handler: this.onAdd.bind(this)
                 }, {
                     text: t('remove_profile'),
                     //iconCls: 'pimcore_icon_delete_medium',
-                    scale: "medium",
+                    scale: "small",
                     handler: this.onDelete.bind(this)
                 }
             ]
