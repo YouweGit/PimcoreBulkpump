@@ -119,6 +119,18 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
                                 //Ext.getCmp('csv_import_config_grid' + id).doLayout();
 
                                 pimcore.helpers.showNotification(t('file_uploaded_confirmation_title'), t('file_uploaded_confirmation'));
+                            },
+                            failure: function (form, action) {
+                                switch (action.failureType) {
+                                    case Ext.form.Action.CLIENT_INVALID:
+                                        Ext.Msg.alert('Failure', 'Form fields may not be submitted with invalid values');
+                                        break;
+                                    case Ext.form.Action.CONNECT_FAILURE:
+                                        Ext.Msg.alert('Failure', 'Ajax communication failed');
+                                        break;
+                                    case Ext.form.Action.SERVER_INVALID:
+                                        Ext.Msg.alert('Failure', action.result.message);
+                                }
                             }
                         });
                     }
@@ -159,6 +171,7 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
             width: 500,
             closeAction: 'hide',
             plain: true,
+            profileId: null,
             buttons: [
                 new Ext.Button({
                     text: 'Close',
