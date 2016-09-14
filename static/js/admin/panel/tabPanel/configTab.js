@@ -377,8 +377,8 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                 items: [
                     {
                         text: t('reload'),
-                        iconCls: 'pimcore_icon_reload_medium',
-                        scale: 'medium',
+                        //iconCls: 'pimcore_icon_reload_medium',
+                        scale: 'small',
                         handler: function (button) {
                             /*
                             var grid = button.findParentByType('grid');
@@ -398,8 +398,8 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                     },
                     {
                         text: t('start import'),
-                        iconCls: 'pimcore_icon_upload_medium',
-                        scale: 'medium',
+                        //iconCls: 'pimcore_icon_upload_medium',
+                        scale: 'small',
                         handler: function (button) {
                             logClass.triggerImport(id);
                         }
