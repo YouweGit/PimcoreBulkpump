@@ -1,4 +1,13 @@
 pimcore.registerNS('pimcore.plugin.CsvImport.admin.configTab');
+Ext.define('Config', {
+    extend: 'Ext.data.Model',
+    fields: [
+        'id',
+        'profile_id',
+        'csv_field'
+    ],
+
+});
 pimcore.plugin.CsvImport.admin.configTab = Class.create(
     {
 
@@ -284,41 +293,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
         },
         getColumnStore: function(id){
             return Ext.create('Ext.data.Store',{
-                autoLoad: true,
-                autoSync: true,
-                fields: [
-                    'id',
-                    'profile_id',
-                    'csv_field'
-                ],
-                proxy: {
-                    type: 'rest',
-                    url: '/plugin/PimcoreBulkpump/columns',
-                    reader: {
-                        type: 'json',
-                        rootProperty: 'fields'
-                    },
-                    writer: {
-                        type: 'json'
-                    }
-                },
-                listeners: {
-                    beforeload: function(store){
-                        store.getProxy().setExtraParam("profileId", id);
-                    },
-                    write: function(store, operation){
-                        var record = operation.getRecords()[0],
-                            name = Ext.String.capitalize(operation.action),
-                            verb;
 
-                        if (name == 'Destroy'){
-                            verb = 'Destroyed';
-                        }else{
-                            verb = name + 'd';
-                        }
-                        Ext.example.msg(name, Ext.String.format("{0} user: {1}", verb,record.getId()));
-                    }
-                }
             });
         },
         getConfigStore: function (id) {
@@ -360,7 +335,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
             return Ext.create('Ext.data.Store',{
                 autoLoad: true,
                 autoSync: true,
-                model: 'Profile',
+                model: 'Config',
                 proxy: {
                     type: 'rest',
                     url: '/PimcoreBulkpump/config',
@@ -369,7 +344,8 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         rootProperty: 'fields'
                     },
                     writer: {
-                        type: 'json'
+                        type: 'json',
+                        rootProperty: 'fields'
                     }
                 },
                 listeners: {
@@ -386,7 +362,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         }else{
                             verb = name + 'd';
                         }
-                        Ext.example.msg(name, Ext.String.format("{0} user: {1}", verb,record.getId()));
+                       // Ext.example.msg(name, Ext.String.format("{0} user: {1}", verb,record.getId()));
                     }
                 }
             });
