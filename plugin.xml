@@ -30,6 +30,7 @@
         <!-- namespaces to register with autoloader-->
         <pluginNamespaces>
             <namespace>PimcoreBulkpump</namespace>
+            <namespace>BulkPump</namespace>
             <namespace>CsvImport</namespace>
             <namespace>CsvDataMapper</namespace>
         </pluginNamespaces>
