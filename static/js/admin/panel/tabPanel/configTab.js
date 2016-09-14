@@ -3,8 +3,12 @@ Ext.define('Config', {
     extend: 'Ext.data.Model',
     fields: [
         'id',
-        'profile_id',
-        'csv_field'
+        'pimcore_field',
+        'fieldtype',
+        'language',
+        'csv_field',
+        'filters',
+        'overwrite_empty'
     ],
 
 });
