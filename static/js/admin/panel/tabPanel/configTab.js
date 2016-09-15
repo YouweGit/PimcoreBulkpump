@@ -91,7 +91,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         dataIndex: 'fieldtype',
                         sortable: true
                     },
-                    {
+                   /* {
                         id: 'csv_field',
                         header: 'CSV field',
                         dataIndex: 'csv_field',
@@ -100,10 +100,10 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                             xtype: 'combo',
                             store: storeColumns
                         }
-                    },
+                    },*/
                     {
                         id: 'csv_field',
-                        header: 'CSV field b',
+                        header: 'CSV field',
                         dataIndex: 'csv_field',
                         sortable: true,
                         editor: columns.getColumnsCombo(id)
