@@ -165,6 +165,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                                     var row = store.getAt(rowIndex);
                                     var config_id = row.get('id');
                                     var filterWindow = filterWindow2.getWindow(config_id, '[csv] ' + (row.get('csv_field')?row.get('csv_field'):'<i>unknown</i>') + ' to [pim] ' + row.get('pimcore_field'));
+                                    //var filterWindow = filterWindow3.getWindow(config_id, '[csv] ' + (row.get('csv_field')?row.get('csv_field'):'<i>unknown</i>') + ' to [pim] ' + row.get('pimcore_field'));
                                     filterWindow.on('destroy', function() {
                                         store.reload();
                                     });
