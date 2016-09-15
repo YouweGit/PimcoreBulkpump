@@ -188,7 +188,9 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
         return window;
     },
     initialize: function () {
-        this.getFileWindow();
+     //   this.getFileWindow();
     }
 });
-var uploadForm = new pimcore.plugin.CsvImport.admin.uploadForm();
+
+
+    var uploadForm = new pimcore.plugin.CsvImport.admin.uploadForm();
