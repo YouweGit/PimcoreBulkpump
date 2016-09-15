@@ -381,6 +381,10 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         //iconCls: 'pimcore_icon_reload_medium',
                         scale: 'small',
                         handler: function (button) {
+                            var grid = Ext.getCmp('csv_import_config_grid'+id);
+                            var store = grid.getStore();
+                            store.load();
+
                             /*
                             var grid = button.findParentByType('grid');
                             var store = grid.getStore();
