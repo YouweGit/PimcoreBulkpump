@@ -27,7 +27,7 @@ pimcore.plugin.CsvImport.admin.object = Class.create({
             allowBlank: false,
             listeners: {
                 select: function( combo, record, index ) {
-                    console.log(configGrid);
+                    //console.log(configGrid);
                      configGrid.addGrid(record.id);
                 }
             }
@@ -55,7 +55,7 @@ pimcore.plugin.CsvImport.admin.object = Class.create({
                 url : '/admin/class/get-tree',
                 reader: {
                     type: 'json',
-                    root: 'object'
+                    rootProperty: 'object'
                 }
             },
             autoLoad: true
