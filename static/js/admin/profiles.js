@@ -50,6 +50,7 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
                         }else{
                             verb = name + 'd';
                         }
+                        pimcore.helpers.showNotification(t('profile_title_notification_succes'), t('profile_title_notification_succes_message'));
                        // Ext.example.msg(name, Ext.String.format("{0} user: {1}", verb,record.getId()));
                     }
                 }
