@@ -51,9 +51,9 @@ pimcore.plugin.CsvImport.admin.profileTab = Class.create(
                        // iconCls: 'pimcore_icon_publish_medium',
                         scale: 'small',
                         handler: function (self) {
-                            console.log(id);
+                            //console.log(id);
                             var window = Ext.getCmp('csv_import_file_upload_window');
-                            console.log(window);
+                            //console.log(window);
                             window.profileId = id;
                             window.show();
                         }

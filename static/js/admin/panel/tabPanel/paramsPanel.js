@@ -37,7 +37,7 @@ pimcore.plugin.CsvImport.admin.paramsPanel = Class.create({
                 });
         
                 var data = Ext.decode(res.responseText);
-                console.log(data);
+                //console.log(data);
 
                 // data.fields.parameters
                 var t = this.generateDynamicForm(config_id, filter_id, data.fields.parameters);

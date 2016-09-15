@@ -97,7 +97,7 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
         saveRecord: function (values, id, updateCallback) {
             var store = Ext.getCmp('importer_grid_profiles').getStore();
             var rec = store.getById(id);
-            console.log(rec);
+            //console.log(rec);
 
             try {
                // rec.beginEdit();
@@ -108,7 +108,7 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
               //  rec.endEdit();
               //  rec.commit();
             } catch (e) {
-                console.log(e);
+              //  console.log(e);
             }
 
             store.sync();

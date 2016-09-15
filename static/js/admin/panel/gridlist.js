@@ -187,11 +187,11 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
         }
         Ext.MessageBox.confirm(t('confirm'), t('are_you_sure_you_want_to_delete_this_profile'), function (value) {
             if (value == 'yes') {
-                console.log(selectedItem);
-                console.log(profileStore);
+                //console.log(selectedItem);
+                //console.log(profileStore);
                 profileStore.remove(selectedItem);
                 profileStore.sync();
-                console.log(profileStore);
+                //console.log(profileStore);
                 var tabComponent = Ext.getCmp("csv_importer_profile_config_tabs");
                 /** @var {Ext.Panel} configPanel */
                // var configPanel = tabComponent.getItem('csv_import_config_panel_' + selectedItem.id);
