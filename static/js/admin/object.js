@@ -27,8 +27,7 @@ pimcore.plugin.CsvImport.admin.object = Class.create({
             allowBlank: false,
             listeners: {
                 select: function( combo, record, index ) {
-                    //console.log(configGrid);
-                     configGrid.addGrid(record.id);
+                     //configGrid.addGrid(record.id);
                 }
             }
         });

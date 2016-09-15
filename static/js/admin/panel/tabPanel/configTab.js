@@ -73,20 +73,20 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                 ],
                 columns: [
                     {
-                        id: 'id',
+                        id: 'id_'+id,
                         header: 'id',
                         dataIndex: 'id',
                         sortable: true,
                         hidden: true
                     },
                     {
-                        id: 'pimcore_field',
+                        id: 'pimcore_field_'+id,
                         header: 'Pimcore field',
                         dataIndex: 'pimcore_field',
                         sortable: true
                     },
                     {
-                        id: 'fieldtype',
+                        id: 'fieldtype_'+id,
                         header: 'Field type',
                         dataIndex: 'fieldtype',
                         sortable: true
@@ -102,21 +102,21 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         }
                     },*/
                     {
-                        id: 'csv_field',
+                        id: 'csv_field_'+id,
                         header: 'CSV field',
                         dataIndex: 'csv_field',
                         sortable: true,
                         editor: columns.getColumnsCombo(id)
                     },
                     {
-                        id: 'language',
+                        id: 'language_'+id,
                         header: 'Language',
                         dataIndex: 'language',
                         sortable: true,
                         width: 30
                     },
                     {
-                        id: 'filters',
+                        id: 'filters_'+id,
                         header: 'Filters',
                         dataIndex: 'filters',
                         sortable: true,
@@ -141,7 +141,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         }
                     },
                     {
-                        id: 'overwrite_empty',
+                        id: 'overwrite_empty_'+id,
                         header: 'Overwrite with empty',
                         dataIndex: 'overwrite_empty',
                         sortable: false,
@@ -151,7 +151,7 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                     },
                     {
                         xtype: 'actioncolumn',
-                        id: 'action',
+                        id: 'action_'+id,
                         header: 'Action',
                         dataIndex: 'action',
                         width: 30,
@@ -381,6 +381,10 @@ pimcore.plugin.CsvImport.admin.configTab = Class.create(
                         //iconCls: 'pimcore_icon_reload_medium',
                         scale: 'small',
                         handler: function (button) {
+                            var grid = Ext.getCmp('csv_import_config_grid'+id);
+                            var store = grid.getStore();
+                            store.load();
+
                             /*
                             var grid = button.findParentByType('grid');
                             var store = grid.getStore();
