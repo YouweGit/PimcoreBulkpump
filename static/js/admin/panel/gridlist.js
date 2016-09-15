@@ -167,7 +167,7 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
             attribute_language_separator: '_'});
 
         profileStore.add(model);
-        profileStore.sync();
+        //profileStore.sync();
         /*
         var newProfile = profileStore.recordType;
         var profile = new newProfile({
