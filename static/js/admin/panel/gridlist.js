@@ -180,24 +180,17 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
     onDelete: function (btn, ev) {
         var profileGrid = Ext.getCmp('importer_grid_profiles'),
             profileStore = profileGrid.getStore(),
-            selectedItem = profileGrid.getSelectionModel().getSelected();
+            selectedItem = profileGrid.getView().getSelectionModel().getSelection()[0];
         if (selectedItem == undefined) {
             Ext.MessageBox.alert(t('error'), t('please_select_a_profile_to_delete'));
             return;
         }
         Ext.MessageBox.confirm(t('confirm'), t('are_you_sure_you_want_to_delete_this_profile'), function (value) {
             if (value == 'yes') {
-                //console.log(selectedItem);
-                //console.log(profileStore);
                 profileStore.remove(selectedItem);
-                profileStore.sync();
-                //console.log(profileStore);
+
                 var tabComponent = Ext.getCmp("csv_importer_profile_config_tabs");
-                /** @var {Ext.Panel} configPanel */
-               // var configPanel = tabComponent.getItem('csv_import_config_panel_' + selectedItem.id);
-              //  if (configPanel) {
-              //      configPanel.destroy();
-              //  }
+
             }
         });
     }

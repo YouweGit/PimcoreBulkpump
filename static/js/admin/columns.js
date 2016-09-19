@@ -108,6 +108,9 @@ pimcore.plugin.CsvImport.admin.columns = Class.create(
                 triggerAction: 'all',
                 emptyText: t('select_an_object'),
                 selectOnFocus: true,
+                listWidth: 'auto',
+                matchFieldWidth: false,
+                maxWidth: 410,
                 listeners: {
                     select: function (combo, record, index) {
                     }
