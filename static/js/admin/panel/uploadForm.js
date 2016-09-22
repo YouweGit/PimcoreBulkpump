@@ -177,7 +177,7 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
                     text: 'Close',
                     handler: function (self) {
                         var parent = self.findParentByType('window');
-                        parent.hide();
+                        parent.destroy();
                     }
                 })
             ],
