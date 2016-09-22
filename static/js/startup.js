@@ -7,41 +7,20 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
     initialize: function () {
         pimcore.plugin.broker.registerPlugin(this);
 
-        var menuItems = [];
-        menuItems.push({
-            text:    t('csv_product_importer'),
-            iconCls: 'pimcore_icon_routes',
-            handler: this.productImporter.bind(this)
-        });
-
         this.navEl = Ext.get('pimcore_menu_product_importer');
         if (!this.navEl) {
-            this.navEl = Ext.get('pimcore_menu_search').insertSibling('<li id="pimcore_menu_product_importer" class="pimcore_menu_item icon-book">' + t('product_importer') + '</li>');
+            this.navEl = Ext.get('pimcore_menu_search').insertSibling('<li id="pimcore_menu_product_importer" class="pimcore_menu_item pimcore_icon-book">' + t('product_importer') + '</li>');
         }
-
-
-        this.menu = new Ext.menu.Menu({
-            cls:   'pimcore_navigation_flyout',
-            items: menuItems
-        });
-
-        /** Start the initialisation of the upload window */
-        //uploadForm.getFileWindow().hide();
     },
 
 
     activateThePanel: function () {
         mainPanel.getPanel();
-/*
-        var panel = null;
-        try {
-            panel = pimcore.globalmanager.get('CsvImport.admin');
-            panel.activate();
-        }
-        catch (e) {
-            pimcore.globalmanager.add("CsvImport.admin", mainPanel);
-            mainPanel.getPanel();
-        }*/
+        pimcore.globalmanager.add("CsvImport.admin", mainPanel);
+
+        var panel = pimcore.globalmanager.get('CsvImport.admin');
+
+
     },
 
     checkRight : function(permission, success, error) {
@@ -76,12 +55,7 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
 
         var toolbar = pimcore.globalmanager.get('layout_toolbar');
 
-
-        this.navEl.on('mousedown', toolbar.showSubMenu.bind(this.menu));
-
-        /** Start the initialisation of the upload window */
-        //uploadForm.getFileWindow();
-       // uploadForm.getFileWindow().hide();
+        this.navEl.on('mousedown', this.productImporter.bind(this));
     }
 
 
