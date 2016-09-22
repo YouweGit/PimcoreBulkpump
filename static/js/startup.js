@@ -80,7 +80,7 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
         this.navEl.on('mousedown', toolbar.showSubMenu.bind(this.menu));
 
         /** Start the initialisation of the upload window */
-        uploadForm.getFileWindow();
+        //uploadForm.getFileWindow();
        // uploadForm.getFileWindow().hide();
     }
 
