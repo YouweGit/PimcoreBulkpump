@@ -105,7 +105,6 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
                     var form = this.up('form').getForm();
                     var window = formParent.findParentByType('window');
                     if(form.isValid()){
-                        window.hide();
                         var values = form.getFieldValues();
                         var file = values['filedata'].split('\\').last();
 
@@ -117,7 +116,7 @@ pimcore.plugin.CsvImport.admin.uploadForm = Class.create({
                                 document.getElementById("load_path_field" + id +'-inputEl').value = file;
                                 // reload the config list
                                 //Ext.getCmp('csv_import_config_grid' + id).doLayout();
-
+                                window.destroy();
                                 pimcore.helpers.showNotification(t('file_uploaded_confirmation_title'), t('file_uploaded_confirmation'));
                             },
                             failure: function (form, action) {
