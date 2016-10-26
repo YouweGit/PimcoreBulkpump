@@ -2,6 +2,6 @@
 /*#pimcore_panel_toolbar {
     background: red !important;
 }*/
-#pimcore_menu_calendar_plugin{
-    background-image: url(/pimcore/static6/img/flat-color-icons/book.svg) !important;
+#pimcore_menu_product_importer{
+    background-image: url(/pimcore/static6/img/flat-color-icons/feed_in.svg) !important;
 }
