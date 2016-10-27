@@ -223,6 +223,12 @@ abstract class CsvDataMapper_Abstract_Data_Mapper implements CsvDataMapper_Inter
                                 {
                                     $object = CsvDataMapper_Data_Store::storeDefault($object, $target, $value, $language);
                                 }
+
+                                // if parent id is mapped and the value is not empty, override the value from the config.
+                                if(($target === 'o_parentId' || $target === 'o_parent') & $value !== null) {
+                                    $object->$target = $value;
+                                }
+
                                 break;
                         }
                     }
@@ -238,7 +244,7 @@ abstract class CsvDataMapper_Abstract_Data_Mapper implements CsvDataMapper_Inter
         foreach($filters as $filter)
         {
 //            echo "Filtering: " . $filter['id'] . "\n";
-            
+
             $fc = new $filter['class'];
             /* @var $fc \BulkPump\ImportFilter\Base */
             if(!is_subclass_of($fc, '\BulkPump\ImportFilter\Base'))
