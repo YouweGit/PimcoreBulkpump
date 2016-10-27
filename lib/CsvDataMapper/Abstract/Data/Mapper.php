@@ -225,8 +225,8 @@ abstract class CsvDataMapper_Abstract_Data_Mapper implements CsvDataMapper_Inter
                                 }
 
                                 // if parent id is mapped and the value is not empty, override the value from the config.
-                                if(($target === 'o_parentId' || $target === 'o_parent') & $value !== null) {
-                                    $object->$target = $value;
+                                if(($target === 'o_parentId') & $value !== null) {
+                                    $object->setParentId($value);
                                 }
 
                                 break;
