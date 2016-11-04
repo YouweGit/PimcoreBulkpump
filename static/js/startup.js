@@ -6,11 +6,16 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
 
     initialize: function () {
         pimcore.plugin.broker.registerPlugin(this);
-
-        this.navEl = Ext.get('pimcore_menu_product_importer');
-        if (!this.navEl) {
-            this.navEl = Ext.get('pimcore_menu_search').insertSibling('<li id="pimcore_menu_product_importer" class="pimcore_menu_item pimcore_icon-book">' + t('product_importer') + '</li>');
-        }
+        
+        this.checkRight(
+            'plugin_pimcorebulkpump_user',
+            function() {
+                this.navEl = Ext.get('pimcore_menu_product_importer');
+                if (!this.navEl) {
+                    this.navEl = Ext.get('pimcore_menu_search').insertSibling('<li id="pimcore_menu_product_importer" class="pimcore_menu_item pimcore_icon-book">' + t('product_importer') + '</li>');
+                }
+            }
+        );
     },
 
 
