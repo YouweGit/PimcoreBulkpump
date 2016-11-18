@@ -177,7 +177,7 @@ abstract class CsvDataMapper_Abstract_Import implements CsvDataMapper_Interface_
         }
         /** @var \BulkPump\CustomImportInterface $importer */
         $importer = new $class($this->getConfig());
-        if (!$importer instanceof \BulkPump\CustomImportInterface) {
+        if (!$importer instanceof \PimcoreBulkpump\CustomImportInterface) {
             throw new Exception('Importer class has to implement "\BulkPump\CustomImportInterface"!');
         }
 
