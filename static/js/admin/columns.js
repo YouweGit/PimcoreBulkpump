@@ -104,7 +104,7 @@ pimcore.plugin.CsvImport.admin.columns = Class.create(
                 displayField: 'csv_field',
                 valueField: 'csv_field',
                 typeAhead: false,
-                forceSelection: true,
+                forceSelection: false,
                 triggerAction: 'all',
                 emptyText: t('select_an_object'),
                 selectOnFocus: true,
