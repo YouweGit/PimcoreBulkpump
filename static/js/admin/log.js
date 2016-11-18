@@ -6,31 +6,31 @@ pimcore.registerNS('pimcore.plugin.CsvImport.admin.logClass');
 pimcore.plugin.CsvImport.admin.logClass = Class.create({
 
     triggerImport: function (profileId) {
-    //    Ext.MessageBox.show({
-    //        msg:            t('importing_data_please_wait'),
-    //        progressText:   t('importing'),
-    //        width:          300,
-    //        wait:           true,
-    //        waitConfig: {
-    //            interval: 200
-    //        },
-    //        icon:           'pimcore_icon_loading', //custom class in msg-box.html
-    //        animEl:         'mb7'
-    //    });
-    //    var onDoneAction = function (response) {
-    //        Ext.MessageBox.hide();
-    //        var data            = Ext.util.JSON.decode(response.responseText),
-    //            title           = data.success ? t('done') : t('error'),
-    //            fileConfigTabs  = Ext.getCmp('csv_importer_profile_config_tabs'),
-    //            profileLogsGrid = Ext.getCmp('importer_grid_profile_logs');
-    //
-    //        profileLogsGrid.getStore().load({
-    //            params: {profileId: profileId}
-    //        });
-    //
-    //        pimcore.helpers.showNotification(title, t(data.message));
-    //        fileConfigTabs.setActiveTab(1);
-    //    };
+        //    Ext.MessageBox.show({
+        //        msg:            t('importing_data_please_wait'),
+        //        progressText:   t('importing'),
+        //        width:          300,
+        //        wait:           true,
+        //        waitConfig: {
+        //            interval: 200
+        //        },
+        //        icon:           'pimcore_icon_loading', //custom class in msg-box.html
+        //        animEl:         'mb7'
+        //    });
+        //    var onDoneAction = function (response) {
+        //        Ext.MessageBox.hide();
+        //        var data            = Ext.util.JSON.decode(response.responseText),
+        //            title           = data.success ? t('done') : t('error'),
+        //            fileConfigTabs  = Ext.getCmp('csv_importer_profile_config_tabs'),
+        //            profileLogsGrid = Ext.getCmp('importer_grid_profile_logs');
+        //
+        //        profileLogsGrid.getStore().load({
+        //            params: {profileId: profileId}
+        //        });
+        //
+        //        pimcore.helpers.showNotification(title, t(data.message));
+        //        fileConfigTabs.setActiveTab(1);
+        //    };
 //        Ext.Ajax.on('requestcomplete', function(conn, response, options) {
 //            Ext.Msg.alert(response.responseText);
 //        });
@@ -47,7 +47,16 @@ pimcore.plugin.CsvImport.admin.logClass = Class.create({
                 try {
                     var obj = Ext.decode(response.responseText);
                     executedResult.title = t("csv_import_result_title");
-                    executedResult.body = obj.message
+                    switch(obj.message)
+                    {
+                        case 'run succesfull':
+                            executedResult.body = t("csv_import_result_message");
+                            break;
+                        default:
+                            executedResult.body = obj.message;
+                            break;
+                    }
+
                 }
                 catch(err) {
                     executedResult.title = t("csv_import_result_title_error");
