@@ -43,16 +43,19 @@ pimcore.plugin.CsvImport.admin.logClass = Class.create({
                 profileId: profileId
             },
             success: function(response, opts) {
+                var executedResult  = {};
                 try {
                     var obj = Ext.decode(response.responseText);
-                    var messy = "<h2>CSV Import results:</h2>" + obj.message;
+                    executedResult.title = t("csv_import_result_title");
+                    executedResult.body = obj.message
                 }
                 catch(err) {
-                    var messy = "<h2>CSV Import raw results:</h2>" + response.responseText;
+                    executedResult.title = t("csv_import_result_title_error");
+                    executedResult.body = response.responseText;
                 }
                 //console.dir(obj);
                 Ext.Msg.minWidth = 860;
-                Ext.Msg.alert(messy);
+                Ext.Msg.alert(executedResult.title, executedResult.body);
             },
         })
     }
