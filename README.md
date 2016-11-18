@@ -66,6 +66,20 @@ A completely custom import class can be used, overriding most standard functiona
     /htdocs/website/lib/Website/BulkPump/CustomImport.php
 
 
+Run from commandline (CLI)
+--------------------------
+
+You can import CSV files by running from commandline, you can configure the profile from the interface.
+You could change the content of the file in the profile by changing in the following path:
+
+    /htdocs/website/var/tmp/bulk-pump
+
+Then you can call the profile with the following command:
+
+    php ./plugins/PimcoreBulkpump/cli/import.php --profileId=<profile id>
+
+You have to change <profile id> in the profile you want to run.
+
 Security
 --------
 
