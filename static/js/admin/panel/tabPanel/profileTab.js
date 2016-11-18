@@ -38,17 +38,17 @@ pimcore.plugin.CsvImport.admin.profileTab = Class.create(
                     {
                         text: t('save'),
                         id: 'btn_save_profile_' + id,
-                       // iconCls: 'pimcore_icon_publish_medium',
+                        // iconCls: 'pimcore_icon_publish_medium',
                         scale: 'small',
                         handler: function (button) {
                             var form = Ext.getCmp('csv_import_selected_form_' + id);
                             var values = form.getForm().getFieldValues();
-                            profiles.saveRecord(values, id, this.updateProfileCallback);
+                            profiles.saveRecord(values, id);
                         }.bind(this)
                     },
                     {
                         text: t('add_new_file'),
-                       // iconCls: 'pimcore_icon_publish_medium',
+                        // iconCls: 'pimcore_icon_publish_medium',
                         scale: 'small',
                         handler: function (self) {
                             //console.log(id);
@@ -63,37 +63,6 @@ pimcore.plugin.CsvImport.admin.profileTab = Class.create(
                     }
                 ]
             })
-        },
-        updateProfileCallback: /**
-         * @param {Ext.data.Store} store
-         * @param {Ext.data.Record} record
-         * @param {String} operation  Ext.data.Record.EDIT || Ext.data.Record.REJECT || Ext.data.Record.COMMIT
-         */
-            function (store, record, operation) {
-            var button = Ext.getCmp('btn_save_profile_' + record.id);
-            button.disable();
-            var _configTabGrid = Ext.getCmp("csv_import_config_grid" + record.id);
-
-            var _configTabStore = _configTabGrid.getStore();
-            _configTabStore.fireEvent('datachanged', _configTabStore);
-            _configTabStore.reload({
-                callback: function (records, operation, success) {
-                    if (success) {
-                        // reload csv field selection box
-                        var comboBox = _configTabGrid.getColumnModel().getColumnById("csv_field");
-                        comboBox.getEditor().getStore().reload({
-                            callback: function () {
-                                button.findParentByType('panel').doLayout();
-                                _configTabGrid.doLayout();
-                                profileTab.checkEnabled(record.id);
-                                button.enable();
-                                pimcore.helpers.showNotification(t('save_notification_title'), t('save_notification'));
-                            }
-                        });
-                    }
-                }
-            });
-
         },
         /**
          *
