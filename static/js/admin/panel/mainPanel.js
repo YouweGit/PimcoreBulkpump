@@ -23,7 +23,7 @@ pimcore.plugin.CsvImport.admin.mainPanel = Class.create(
                         split:       true,
                         minSize:     150,
                         collapsible: true,
-                        width:       300,
+                        width:       390,
                         items:       [
                             gridlist.getGridList()
                         ]
