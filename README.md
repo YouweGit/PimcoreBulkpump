@@ -53,6 +53,7 @@ o_key column mapping will be used to create the Pimcore key and to update existi
 
 If an object has an import[FieldName] function, this function will be used instead of the set[FieldName] function.
 
+###Custom filters
 Custom filters can be added to the project here:
 
     /htdocs/website/models/BulkPumpFilter
@@ -61,6 +62,7 @@ Custom filters must have the same format as the native filters here:
 
     /htdocs/plugins/BulkPump/models/BulkPump/ImportFilter/Native
 
+###Custom import classes
 A completely custom import class can be used, overriding most standard functionalities:
 
     /htdocs/website/lib/Website/BulkPump/CustomImport.php
