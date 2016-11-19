@@ -78,7 +78,7 @@ Then you can call the profile with the following command:
 
     php ./plugins/PimcoreBulkpump/cli/import.php --profileId=<profile id>
 
-You have to change <profile id> in the profile you want to run.
+You have to change `<profile id>` in the profile id you want to run. You can find the id in the GUI of the plugin.
 
 Security
 --------
