@@ -11,7 +11,7 @@ pimcore.plugin.CsvImport.admin.mainPanel = Class.create(
             var panel = new Ext.Panel({
                 id:       "csv_product_import_tab",
                 title:    t('csv_product_importer_mapper'),
-                iconCls:  'pimcore_icon_routes',
+                iconCls:  'pimcore_icon_importer',
                 layout:   'border',
                 closable: true,
                 items:    [
