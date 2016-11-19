@@ -65,6 +65,38 @@ A completely custom import class can be used, overriding most standard functiona
 
     /htdocs/website/lib/Website/BulkPump/CustomImport.php
 
+Example of a CustomImport class:
+
+    <?php
+    /**
+     * CustomImport example
+     */
+
+    namespace Website\BulkPump;
+    use PimcoreBulkpump\CustomImportInterface;
+    
+    class CustomExample implements CustomImportInterface
+    {
+    
+        public function __construct($config)
+        {
+    
+        }
+    
+        /**
+         *  Process every row
+         */
+        public function import(&$object, array $row)
+        {
+            &object->setValue($row['value']);
+        }
+    }
+    
+You must select in the GUI of the plugin, in the `profile` section de `Import type` to `Custom`. Then there appears a addition section called `Settings for import type Custom` and here you can set the custom class as followed:
+
+    \Website\Bulkpump\ImportBrands
+    
+And save the profile.
 
 Run from commandline (CLI)
 --------------------------
