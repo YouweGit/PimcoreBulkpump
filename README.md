@@ -53,6 +53,7 @@ o_key column mapping will be used to create the Pimcore key and to update existi
 
 If an object has an import[FieldName] function, this function will be used instead of the set[FieldName] function.
 
+###Custom filters
 Custom filters can be added to the project here:
 
     /htdocs/website/models/BulkPumpFilter
@@ -61,10 +62,57 @@ Custom filters must have the same format as the native filters here:
 
     /htdocs/plugins/BulkPump/models/BulkPump/ImportFilter/Native
 
+###Custom import classes
 A completely custom import class can be used, overriding most standard functionalities:
 
     /htdocs/website/lib/Website/BulkPump/CustomImport.php
 
+Example of a CustomImport class:
+
+    <?php
+    /**
+     * CustomImport example
+     */
+
+    namespace Website\BulkPump;
+    use PimcoreBulkpump\CustomImportInterface;
+    
+    class CustomExample implements CustomImportInterface
+    {
+    
+        public function __construct($config)
+        {
+    
+        }
+    
+        /**
+         *  Process every row
+         */
+        public function import(&$object, array $row)
+        {
+            &object->setValue($row['value']);
+        }
+    }
+    
+You must select in the GUI of the plugin, in the `profile` section de `Import type` to `Custom`. Then there appears a addition section called `Settings for import type Custom` and here you can set the custom class as followed:
+
+    \Website\Bulkpump\ImportBrands
+    
+And save the profile.
+
+Run from commandline (CLI)
+--------------------------
+
+You can import CSV files by running from commandline, you can configure the profile from the interface.
+You could change the content of the file in the profile by changing in the following path:
+
+    /htdocs/website/var/tmp/bulk-pump
+
+Then you can call the profile with the following command:
+
+    php ./plugins/PimcoreBulkpump/cli/import.php --profileId=<profile id>
+
+You have to change `<profile id>` in the profile id you want to run. You can find the id in the GUI of the plugin.
 
 Security
 --------

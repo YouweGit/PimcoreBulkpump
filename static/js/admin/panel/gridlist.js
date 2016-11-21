@@ -21,6 +21,10 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
                     //iconCls: 'pimcore_icon_delete_medium',
                     scale: "small",
                     handler: this.onDelete.bind(this)
+                }, {
+                    text: t('import_profile'),
+                    scale: "small",
+                    handler: this.onRun.bind(this)
                 }
             ]
         })
@@ -191,6 +195,20 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
 
                 var tabComponent = Ext.getCmp("csv_importer_profile_config_tabs");
 
+            }
+        });
+    },
+    onRun:function(){
+        var profileGrid = Ext.getCmp('importer_grid_profiles'),
+            profileStore = profileGrid.getStore(),
+            selectedItem = profileGrid.getView().getSelectionModel().getSelection()[0];
+        if (selectedItem == undefined) {
+            Ext.MessageBox.alert(t('error'), t('please_select_a_profile_to_run'));
+            return;
+        }
+        Ext.MessageBox.confirm(t('confirm'), t('are_you_sure_you_want_to_run_this_profile'), function (value) {
+            if (value == 'yes') {
+                logClass.triggerImport(selectedItem.id);
             }
         });
     }
