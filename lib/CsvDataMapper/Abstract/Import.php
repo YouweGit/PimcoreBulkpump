@@ -2,6 +2,7 @@
 use Pimcore\Model\Object\AbstractObject;
 use Pimcore\Model\Object;
 use Pimcore\File;
+use Pimcore\Logger;
 
 /**
  * Import.php
