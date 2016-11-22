@@ -39,7 +39,9 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
                     success();
                 }
                 else {
-                    error();
+                    if(typeof error != 'undefined') {
+                        error();
+                    }
                 }
             }.bind(this),
             error : function () { alert('error checking permissions') }
@@ -47,7 +49,7 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
     },
 
     productImporter: function () {
-       this.checkRight(
+        this.checkRight(
             'plugin_pimcorebulkpump_user',
             function() {
                 this.activateThePanel();
@@ -61,7 +63,10 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
 
         var toolbar = pimcore.globalmanager.get('layout_toolbar');
 
-        this.navEl.on('mousedown', this.productImporter.bind(this));
+        //When you didnt had the right's there is no element to bind to
+        if(typeof this.navEl != 'undefined') {
+            this.navEl.on('mousedown', this.productImporter.bind(this));
+        }
     }
 
 
