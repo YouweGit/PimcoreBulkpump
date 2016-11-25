@@ -84,11 +84,11 @@ Example of a CustomImport class:
         {
     
         }
-    
+ 
         /**
          *  Process every row
          */
-        public function import(&$object, array $row)
+        public function import(&$object, array $row, \CsvDataMapper_Import $importObject)
         {
             &object->setValue($row['value']);
         }
