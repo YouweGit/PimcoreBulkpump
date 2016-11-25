@@ -157,7 +157,7 @@ abstract class CsvDataMapper_Abstract_Import implements CsvDataMapper_Interface_
         $importType = $this->checkConfigField('importType');
 
         if($importType === self::IMPORT_TYPE_CUSTOM_CLASS){
-            $this->importCustomClass($object, $this);
+            $this->importCustomClass($object);
         }
 
         $this->setPublishedValue($object);
@@ -168,10 +168,9 @@ abstract class CsvDataMapper_Abstract_Import implements CsvDataMapper_Interface_
 
     /**
      * @param $object
-     * @param CsvDataMapper_Import $importObject
      * @throws Exception
      */
-    protected function importCustomClass(&$object, \CsvDataMapper_Import $importObject) {
+    protected function importCustomClass(&$object) {
         $class = $this->checkConfigField('customClass');
 
         if (class_exists($class) === false) {
@@ -183,7 +182,7 @@ abstract class CsvDataMapper_Abstract_Import implements CsvDataMapper_Interface_
             throw new Exception('Importer class has to implement "\BulkPump\CustomImportInterface"!');
         }
 
-        $importer->import($object, (array)$this->getDataMapper()->getContextObject(), $importObject);
+        $importer->import($object, (array)$this->getDataMapper()->getContextObject(), $this);
     }
     /**
      * Import classification attributes
