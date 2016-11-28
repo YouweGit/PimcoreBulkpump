@@ -98,7 +98,7 @@ Example of a CustomImport class:
             $this->importObject->setDataStoreAttribute('tempID', 1234);
             
             //Receive data => result in 1234
-            $id = $this->importObject->getDataStoreAttribute('tempId');
+            $id = $this->importObject->getDataStoreAttribute('tempID');
             
         }
     }

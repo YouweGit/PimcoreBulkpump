@@ -16,5 +16,4 @@ interface CustomImportInterface {
      * @return mixed
      */
     public function import(&$object, array $row);
-
 }
