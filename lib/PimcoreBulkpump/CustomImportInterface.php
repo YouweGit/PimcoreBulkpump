@@ -13,10 +13,9 @@ interface CustomImportInterface {
     /**
      * @param $object
      * @param array $row
-     * @param \CsvDataMapper_Import $importObject
      * @return mixed
      */
-    public function import(&$object, array $row, \CsvDataMapper_Import $importObject);
+    public function import(&$object, array $row);
 
     public function setProfile($profile);
 }

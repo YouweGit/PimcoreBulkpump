@@ -182,7 +182,12 @@ abstract class CsvDataMapper_Abstract_Import implements CsvDataMapper_Interface_
             throw new Exception('Importer class has to implement "\BulkPump\CustomImportInterface"!');
         }
 
-        $importer->import($object, (array)$this->getDataMapper()->getContextObject(), $this);
+        if(isset($importer->importObject))
+        {
+           $importer->importObject = $this;
+        }
+
+        $importer->import($object, (array)$this->getDataMapper()->getContextObject());
     }
     /**
      * Import classification attributes
