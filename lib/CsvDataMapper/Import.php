@@ -5,7 +5,8 @@
  */
 class CsvDataMapper_Import extends CsvDataMapper_Abstract_Import
 {
-
+    /** @var array Data store for saving row data over multiple rows */
+    private $_store = array();
 
     public static function init($config)
     {
@@ -32,6 +33,33 @@ class CsvDataMapper_Import extends CsvDataMapper_Abstract_Import
             throw new Exception($e);
         }
         return true;
+    }
+
+    /**
+     * Retrieve data from the store
+     *
+     * @param string $key Key where it should be stored
+     *
+     * @return mixed|null Returned data
+     */
+    public function getDataStoreAttribute(string $key)
+    {
+        if (isset($this->_store[$key])) {
+            return $this->_store[$key];
+        }
+
+        return null;
+    }
+
+    /**
+     * Save the data in the store
+     *
+     * @param string $key   The key where data should be stored
+     * @param mixed  $value Data be stored in the object
+     */
+    public function setDataStoreAttribute(string $key, $value)
+    {
+        $this->_store[$key] = $value;
     }
 
 
