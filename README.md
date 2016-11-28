@@ -132,7 +132,7 @@ User must have this permission to use the plugin:
 Future permissions:
 *   plugin_bulkpump_admin
 *   plugin_bulkpump_import
-*   etc..
+*   etc...
 
 
 
