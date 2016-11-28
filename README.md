@@ -79,7 +79,9 @@ Example of a CustomImport class:
     
     class CustomExample implements CustomImportInterface
     {
-    
+        //Create a general property to save multiple row handeling
+        public $importObject = true;
+        
         public function __construct($config)
         {
     
@@ -88,9 +90,16 @@ Example of a CustomImport class:
         /**
          *  Process every row
          */
-        public function import(&$object, array $row, \CsvDataMapper_Import $importObject)
+        public function import(&$object, array $row)
         {
             &object->setValue($row['value']);
+            
+            //Set data in dataStore
+            $this->importObject->setDataStoreAttribute('tempID', 1234);
+            
+            //Receive data => result in 1234
+            $id = $this->importObject->getDataStoreAttribute('tempId');
+            
         }
     }
     
