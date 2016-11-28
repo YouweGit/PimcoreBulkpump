@@ -17,5 +17,4 @@ interface CustomImportInterface {
      */
     public function import(&$object, array $row);
 
-    public function setProfile($profile);
 }
