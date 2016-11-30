@@ -38,7 +38,7 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
         ));
         $router->addRoute('csv_importer_rest_filterchain', $restRoute);
 
-
+        $this->initConsoleCommands();
     }
 
     /**
