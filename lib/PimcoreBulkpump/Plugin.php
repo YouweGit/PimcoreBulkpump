@@ -4,8 +4,12 @@ namespace PimcoreBulkpump;
 
 use Pimcore\API\Plugin as PluginLib;
 use Pimcore\Resource;
+use Pimcore\Console\ConsoleCommandPluginTrait;
+use PimcoreBulkpump\Console\Command\ImporterCommand;
+use Symfony\Component\Console\Command\Command;
 
 class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterface {
+    use ConsoleCommandPluginTrait;
 
     public function init() {
 
@@ -194,6 +198,19 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
         }
         return "/PimcoreBulkpump/translation/en.csv";
 
+    }
+
+    /**
+     * Returns an array of commands to be added to the application.
+     * To be implemented by plugin classes providing console commands.
+     *
+     * @return Command[]
+     */
+    public function getConsoleCommands()
+    {
+        return [
+            new ImporterCommand(),
+        ];
     }
 
 }
