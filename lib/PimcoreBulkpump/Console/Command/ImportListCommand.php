@@ -27,7 +27,19 @@ class ImportListCommand extends Console\AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $model = new \CsvImport_Mapper_Profile();
+        $profiles = $model->read()->toArray();
 
+        $line = array();
+        $line[] = "\nFollowing profiles are available";
+
+        foreach ($profiles as $profile)
+        {
+            $line[] = str_pad($profile['id'], 4," " ,STR_PAD_LEFT).' | '.$profile['profile_name'];
+        }
+        $line[] = "\n";
+
+        $output->writeln($line);
     }
 
 }
