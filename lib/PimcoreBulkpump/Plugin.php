@@ -6,6 +6,7 @@ use Pimcore\API\Plugin as PluginLib;
 use Pimcore\Resource;
 use Pimcore\Console\ConsoleCommandPluginTrait;
 use PimcoreBulkpump\Console\Command\ImporterCommand;
+use PimcoreBulkpump\Console\Command\ImportListCommand;
 use Symfony\Component\Console\Command\Command;
 
 class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterface {
@@ -210,6 +211,7 @@ class Plugin extends PluginLib\AbstractPlugin implements PluginLib\PluginInterfa
     {
         return [
             new ImporterCommand(),
+            new ImportListCommand()
         ];
     }
 
