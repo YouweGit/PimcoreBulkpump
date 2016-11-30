@@ -119,9 +119,11 @@ You could change the content of the file in the profile by changing in the follo
 
 Then you can call the profile with the following command:
 
-    php ./plugins/PimcoreBulkpump/cli/import.php --profileId=<profile id>
+    php pimcore/cli/console.php bulkpump:import --profileId=<profile id>
 
-You have to change `<profile id>` in the profile id you want to run. You can find the id in the GUI of the plugin.
+You have to change `<profile id>` in the profile id you want to run. You can find the id in the GUI of the plugin. Or by running the following command:
+
+    php pimcore/cli/console.php bulkpump:list
 
 Security
 --------
