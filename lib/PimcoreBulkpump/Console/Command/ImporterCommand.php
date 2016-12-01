@@ -38,15 +38,10 @@ class ImporterCommand extends AbstractCommand
 
         if(!isset($profileId))
         {
-            $output->writeln('<info>No profileId has been set</info>');
-            exit();
+            throw new \Exception("No profileId has been set");
         }
 
-        try {
-            \CsvDataMapper_Import_Profile::run($profileId);
-        } catch( Exception $e) {
-            die($e);
-        }
+        \CsvDataMapper_Import_Profile::run($profileId);
     }
 
 }
