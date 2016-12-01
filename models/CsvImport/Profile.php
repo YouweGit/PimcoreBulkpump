@@ -27,6 +27,9 @@ class CsvImport_Profile extends CsvImport_Abstract_Model
         $profileMapper->init();
         $row = $profileMapper->getById($id);
 
+        if(!$row){
+            throw new Exception("Profile not found");
+        }
         $profile = new self();
         $profile->id = $id;
         $profile->_data = $row->toArray();
