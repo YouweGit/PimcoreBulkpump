@@ -31,7 +31,7 @@ class ImportListCommand extends Console\AbstractCommand
         $profiles = $model->read()->toArray();
 
         $line = array();
-        $line[] = "\nFollowing profiles are available";
+        $line[] = "Following profiles are available";
 
         foreach ($profiles as $profile)
         {
