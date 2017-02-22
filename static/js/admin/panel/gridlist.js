@@ -84,6 +84,7 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
             split: true,
             region: 'west',
             listeners: {
+                rowcontextmenu: this.showMenu.bind(this),
                 rowclick: function(searchgrid, rowIndex, e) {
                    // var rec = grid.getStore().getAt(rowIndex);
                     tabPanel.openTab(rowIndex.id);
@@ -124,14 +125,24 @@ pimcore.plugin.CsvImport.admin.panel.gridlist = Class.create({
             }
         ]
     },
-    showMenu: function (grid, index, event) {
-        event.stopEvent();
+    showMenu: function (grid, index, event, something) {
+        // console.log('GRID');
+        // console.log(grid);
+        // console.log('INDEX');
+        // console.log(index);
+        // console.log('EVENT');
+        // console.log(event);
+        // console.log('SOMETHING');
+        // console.log(something);
+
+
+        // event.stopEvent();
         var record = grid.getStore().getAt(index);
         new Ext.menu.Menu({
             items: [{
                 text: t("clone_profile"),
                 handler: function () {
-                    this.duplicateProfile(grid, record.id);
+                    this.duplicateProfile(grid, index.id);
                 }.bind(this),
                 iconCls: 'pimcore_icon_clone'
             }]
