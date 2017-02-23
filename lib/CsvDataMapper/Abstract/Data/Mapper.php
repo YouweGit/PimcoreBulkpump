@@ -198,7 +198,7 @@ abstract class CsvDataMapper_Abstract_Data_Mapper implements CsvDataMapper_Inter
                     // TRY THE CUSTOM FUNCTION IF IT EXISTS FOR THIS FIELD!
                     $setter = 'import' . ucfirst($target);
                     if (method_exists($object, $setter)) {
-                        $object->$setter($value);
+                        $object->$setter($value, $contextObject);
                     } else {
                         switch ($fieldType) {
                             case "numeric" :

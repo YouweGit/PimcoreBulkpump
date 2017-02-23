@@ -53,6 +53,8 @@ o_key column mapping will be used to create the Pimcore key and to update existi
 
 If an object has an import[FieldName] function, this function will be used instead of the set[FieldName] function.
 
+    import function has 2 parameters: ($value, $all_values_for_all_fields)
+
 ###Custom filters
 Custom filters can be added to the project here:
 
