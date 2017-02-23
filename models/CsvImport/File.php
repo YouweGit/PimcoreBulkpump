@@ -14,7 +14,7 @@
 class CsvImport_File extends CsvImport_Abstract_Model {
 
 
-    const TMP_DIR = 'bulk-pump';
+    const TMP_DIR = 'PimcoreBulkpump';
 
 
     /**
@@ -82,7 +82,7 @@ class CsvImport_File extends CsvImport_Abstract_Model {
      * @return string
      */
     public static function getTmpPath() {
-        $path = PIMCORE_TEMPORARY_DIRECTORY . DIRECTORY_SEPARATOR . self::TMP_DIR;
+        $path = PIMCORE_WEBSITE_VAR . '/plugins' . DIRECTORY_SEPARATOR . self::TMP_DIR;
         if (!is_dir($path)) {
             \Pimcore\File::mkdir($path);
         }
