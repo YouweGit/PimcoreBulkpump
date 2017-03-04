@@ -117,7 +117,7 @@ pimcore.plugin.CsvImport.admin.dataTab = Class.create(
                     root: 'fields'
                 }),
                 proxy: new Ext.data.HttpProxy({
-                    url: '/PimcoreBulkpump/config'     // @TODO: fix data proxy !!!!!
+                    url: '/plugin/PimcoreBulkpump/config' 
                 }),
                 baseParams: {
                     profileId: id
