@@ -28,7 +28,7 @@ pimcore.plugin.CsvImport.admin.profiles = Class.create({
                 model: 'Profile',
                 proxy: {
                     type: 'rest',
-                    url: '/PimcoreBulkpump/profile',
+                    url: '/plugin/PimcoreBulkpump/profile',
                     reader: {
                         type: 'json',
                         rootProperty: 'profiles'
