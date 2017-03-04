@@ -18,7 +18,7 @@ Documentation is available in the "doc" folder of this plugin.
 Installation
 ------------
 
-Plugin can be installed through composer. Add json to your composer.json:
+Plugin can be installed through composer. If you have a different public web directory you have to set that in the 'config:document-root-path', otherwise you can ignore that section. Add json to your composer.json:
 
     {
         "config": {

@@ -10,7 +10,7 @@
         <pluginDescription><![CDATA[Add functionality for import from files (GUI/CLI) ]]></pluginDescription>
 
         <!-- meta data -->
-        <pluginVersion>1.0</pluginVersion>
+        <pluginVersion>0.4.14</pluginVersion>
         <pluginRevision>1</pluginRevision>
         <pluginBuildTimestamp>0</pluginBuildTimestamp>
 
