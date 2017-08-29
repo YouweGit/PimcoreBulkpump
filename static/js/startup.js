@@ -6,21 +6,6 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
 
     initialize: function () {
         pimcore.plugin.broker.registerPlugin(this);
-
-        //Create a variable to prevent scope problems
-        var plugin = this;
-
-        this.checkRight(
-            'plugin_pimcorebulkpump_user',
-            function() {
-
-                //When the user has the right permission then add menu item in left menu
-                plugin.navEl = Ext.get('pimcore_menu_product_importer');
-                if (!plugin.navEl) {
-                    plugin.navEl = Ext.get('pimcore_menu_search').insertSibling('<li id="pimcore_menu_product_importer" class="pimcore_menu_item pimcore_icon-book">' + t('product_importer') + '</li>');
-                }
-            }
-        );
     },
 
 
@@ -34,57 +19,22 @@ pimcore.plugin.CsvImport = Class.create(pimcore.plugin.admin, {
         var panel = pimcore.globalmanager.get('CsvImport.admin');
     },
 
-    /**
-     * Recieve and check if user has the correct permissions
-     *
-     * @param permission
-     * @param success
-     * @param error
-     */
-    checkRight : function(permission, success, error) {
-        Ext.Ajax.request({
-            url : "/plugin/PimcoreBulkpump/user/permission",
-            params : { permission : permission },
-            success : function (result) {
-                var res = Ext.decode(result.responseText);
-                if(res.success) {
-                    success();
-                }
-                else {
-                    if(typeof error != 'undefined') {
-                        error();
-                    }
-                }
-            }.bind(this),
-            error : function () { alert('error checking permissions') }
-        });
-    },
-
-    /**
-     * Method to open the importer panel
-     */
-    productImporter: function () {
-        this.checkRight(
-            'plugin_pimcorebulkpump_user',
-            function() {
-                //Activate the panel
-                this.activateThePanel();
-            }.bind(this),
-            function() {
-                //TODO: in the future, people without rights shouldnt even see the button
-            }
-        );
-    },
-
     pimcoreReady: function (params, broker) {
 
-        var toolbar = pimcore.globalmanager.get('layout_toolbar');
 
-        //When you didnt had the right's there is no element to bind to
-        if(typeof this.navEl != 'undefined') {
+        var user = pimcore.globalmanager.get("user");
+        if(user.isAllowed("plugin_pimcorebulkpump_user")) {
 
-            //Bind the navigation to the button, after the click to open the tab
-            this.navEl.on('mousedown', this.productImporter.bind(this));
+            var toolbar = pimcore.globalmanager.get('layout_toolbar');
+
+            //When the user has the right permission then add menu item in left menu
+            this.navEl = Ext.get('pimcore_menu_product_importer');
+            if (!this.navEl) {
+                this.navEl = Ext.get('pimcore_menu_search')
+                    .insertSibling('<li id="pimcore_menu_product_importer" class="pimcore_menu_item pimcore_icon-book">' + t('product_importer') + '</li>');
+
+                this.navEl.on('mousedown', this.activateThePanel.bind(this));
+            }
         }
     }
 
